@@ -1,4 +1,8 @@
-const _cookieWidgetDomain = "http://localhost:8000";
+/// Cookie widget (widget.js)
+/// Source code: https://github.com/kirillzhosul/cookie-widget
+/// Web page: https://kirillzhosul.github.io/cookie-widget/
+
+const _cookieWidgetDomain = "https://kirillzhosul.github.io/cookie-widget";
 let _cookieWidgetDivContainer = null;
 
 _cookieWidgetLoadStyles = function (onLoad) {
