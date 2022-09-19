@@ -2,8 +2,8 @@
 /// Source code: https://github.com/kirillzhosul/cookie-widget
 /// Web page: https://kirillzhosul.github.io/cookie-widget/
 
-const _cookieWidgetDomain = "https://kirillzhosul.github.io/cookie-widget";
-const _cookieWidgetCookieName = "_cookieWidgetSkipped_"
+const _cookieWidgetDomain_ = "https://kirillzhosul.github.io/cookie-widget";
+const _cookieWidgetCookieName_ = "_cookieWidgetSkipped_";
 let _cookieWidgetDivContainer = null;
 
 _cookieWidgetLoadStyles = function (onLoad) {
@@ -14,7 +14,7 @@ _cookieWidgetLoadStyles = function (onLoad) {
   _cookieWidgetStyleImport.setAttribute("type", "text/css");
   _cookieWidgetStyleImport.setAttribute(
     "href",
-    _cookieWidgetDomain + "/widget.css"
+    _cookieWidgetDomain_ + "/widget.css"
   );
   if (onLoad) {
     _cookieWidgetStyleImport.addEventListener("load", onLoad);
@@ -57,7 +57,7 @@ _cookieWidgetCreate_ = function () {
   // Links.
   //let _cookieWidgetLink = document.createElement("a");
   //_cookieWidgetLink.setAttribute("class", "_cookieWidgetLink_");
-  //_cookieWidgetLink.setAttribute("href", _cookieWidgetDomain);
+  //_cookieWidgetLink.setAttribute("href", _cookieWidgetDomain_);
   //_cookieWidgetLink.innerText = "Add to my site!";
 
   // Inject children.
@@ -76,32 +76,36 @@ _cookieWidgetOnClose = function () {
   /// Closes widget.
   if (_cookieWidgetDivContainer === null) return;
   _cookieWidgetDivContainer.remove();
-  _cookieWidgetSetCookie_(_cookieWidgetCookieName, 1);
+  _cookieWidgetSetCookie_(_cookieWidgetCookieName_, 1);
 };
 
-_cookieWidgetGetCookie_ = function(name){
+_cookieWidgetGetCookie_ = function (name) {
   /// Return cookie by the name.
-  let pattern = "(?:; )?" + name + "=([^;]*);?"; 
+  let pattern = "(?:; )?" + name + "=([^;]*);?";
   let regexp = new RegExp(pattern);
-  if (regexp.test(document.cookie)) { 
-    return decodeURIComponent(RegExp["$1"]); 
-  } 
+  if (regexp.test(document.cookie)) {
+    return decodeURIComponent(RegExp["$1"]);
+  }
   return false;
-}
+};
 
-_cookieWidgetSetCookie_ = function(k, v, date){
+_cookieWidgetSetCookie_ = function (name, value, date) {
   /// Set cookie.
-  let domain = ' domain=' + domain + ';'; 
-  let cookie = k + "=" + v + '; expires=' + new Date(date ? date : new Date().getTime() + 5184000000).toGMTString() + '; path=/;'; 
+  let domain = " domain=" + domain + ";";
+  let cookie =
+    name +
+    "=" +
+    value +
+    "; expires=" +
+    new Date(date ? date : new Date().getTime() + 5184000000).toGMTString() +
+    "; path=/;";
   document.cookie = cookie + domain;
-}
+};
 
 // Load styles, and after ready this will create widget itself.
 // Only if no cookie.
-if (_cookieWidgetGetCookie_(_cookieWidgetGetCookie_()){
+if (
+  _cookieWidgetGetCookie_(_cookieWidgetGetCookie_(_cookieWidgetCookieName_))
+) {
   _cookieWidgetLoadStyles(_cookieWidgetCreate_);
 }
-
-
-
-
