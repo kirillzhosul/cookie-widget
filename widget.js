@@ -104,6 +104,6 @@ _cookieWidgetSetCookie_ = function (name, value, date) {
 
 // Load styles, and after ready this will create widget itself.
 // Only if no cookie.
-if (_cookieWidgetGetCookie_(_cookieWidgetCookieName_)) {
+if (!_cookieWidgetGetCookie_(_cookieWidgetCookieName_)) {
   _cookieWidgetLoadStyles(_cookieWidgetCreate_);
 }
