@@ -1,0 +1,7 @@
+code, a {
+  font-family: 'Courier New', monospace;
+  background-color: rgb(213, 213, 234);
+}
+h1, h2, h3, h4, h5, h6, span, p {
+  font-family: 'Trebuchet MS', sans-serif;
+}
