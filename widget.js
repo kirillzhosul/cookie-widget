@@ -3,6 +3,7 @@
 /// Web page: https://kirillzhosul.github.io/cookie-widget/
 
 const _cookieWidgetDomain = "https://kirillzhosul.github.io/cookie-widget";
+const _cookieWidgetCookieName = "_cookieWidgetSkipped_"
 let _cookieWidgetDivContainer = null;
 
 _cookieWidgetLoadStyles = function (onLoad) {
@@ -75,6 +76,32 @@ _cookieWidgetOnClose = function () {
   /// Closes widget.
   if (_cookieWidgetDivContainer === null) return;
   _cookieWidgetDivContainer.remove();
+  _cookieWidgetSetCookie_(_cookieWidgetCookieName, 1);
 };
+
+_cookieWidgetGetCookie_ = function(name){
+  /// Return cookie by the name.
+  let pattern = "(?:; )?" + name + "=([^;]*);?"; 
+  let regexp = new RegExp(pattern);
+  if (regexp.test(document.cookie)) { 
+    return decodeURIComponent(RegExp["$1"]); 
+  } 
+  return false;
+}
+
+_cookieWidgetSetCookie_ = function(k, v, date){
+  /// Set cookie.
+  let domain = ' domain=' + domain + ';'; 
+  let cookie = k + "=" + v + '; expires=' + new Date(date ? date : new Date().getTime() + 5184000000).toGMTString() + '; path=/;'; 
+  document.cookie = cookie + domain;
+}
+
 // Load styles, and after ready this will create widget itself.
-_cookieWidgetLoadStyles(_cookieWidgetCreate_);
+// Only if no cookie.
+if (_cookieWidgetGetCookie_(_cookieWidgetGetCookie_()){
+  _cookieWidgetLoadStyles(_cookieWidgetCreate_);
+}
+
+
+
+
