@@ -11,6 +11,8 @@ Widget does not includes any tracking or server-side, being deployed only using 
 
 See [here](https://kirillzhosul.github.io/cookie-widget).
 
+![Widget preview](/readme/example.png)
+
 ### How to use this widget?
 
 Add this line inside your head HTML tag: \
@@ -31,5 +33,5 @@ new CookieWidget("Title", "Body!").tryShow(true);
 
 ### Any opportunity to self-host?
 
-Sure! Download `widget.css` and `widget.js`, update `_cookieWidgetDomain_` at the top of the JS script, to the your domain.
-If widget not showing, it may caused by denied access to the `widget.css`, as is widget will show up only when styling is loaden!
+Sure! Download `widget.css` and `widget.js` (or your required version, or all versions), update `_cookieWidgetDomain_` at the top of the JS script, to the your domain.
+If widget not showing, it may caused by denied access to the `widget.css`, as is widget will show up only when styling is loaded!
