@@ -13,12 +13,21 @@ See [here](https://kirillzhosul.github.io/cookie-widget).
 
 ### How to use this widget?
 
-Add this line inside your head HTML tag:
-`<script src="https://kirillzhosul.github.io/cookie-widget/widget.js"></script>`
+Add this line inside your head HTML tag: \
+`<script src="https://kirillzhosul.github.io/cookie-widget/widget.js"></script>` \
+If you want use minified version, use `widget.min.js`, \
+for configurable widget (with required own request to show) use `widget.c.js`, see below how to configure.
 
 ### How to configure this widget?
 
-For now configuration is not yet possible!
+To use configurable widget, load `widget.c.js` (not `widget.js` or `widget.min.js`). \
+After loading write another script with:
+
+```js
+new CookieWidget("Title", "Body!").tryShow(true);
+```
+
+`CookieWidget` constructor accepts 2 arguments (title text, body text), and `tryShow` accepts one argument (should it show widget even when user has clicked accept before). Notice that any argument can be ommited!
 
 ### Any opportunity to self-host?
 
