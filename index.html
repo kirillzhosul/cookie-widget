@@ -3,7 +3,10 @@
   <head>
     <title>Cookie Widget</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="widget.min.js"></script>
+    <script type="text/javascript" src="widget.c.js"></script>
+    <script type="text/javascript">
+      new CookieWidget().tryShow(true);
+    </script>
   </head>
   <body>
     <h1>Cookie Widget</h1>
@@ -19,7 +22,7 @@
       >!</p>
     </p>
     <h3>How widget is looks like?</h3>
-    <p>It is actually connected and used here!</p>
+    <p>It is actually connected and used here! <br/> (It will still shown even after accepting, but by default this is disabled)</p>
     <h3>How to use this widget?</h3>
     <p>
       Add this line inside your <code>head</code> HTML tag:<br />
