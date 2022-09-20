@@ -91,7 +91,7 @@ _cookieWidgetGetCookie_ = function (name) {
 
 _cookieWidgetSetCookie_ = function (name, value, date) {
   /// Set cookie.
-  let domain = " domain=" + _cookieWidgetDomain_ + ";";
+  let domain = " domain=" + window.location.hostname + ";";
   let cookie =
     name +
     "=" +
